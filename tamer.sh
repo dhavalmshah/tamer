@@ -27,6 +27,10 @@ sudo apt-get install certbot python3-certbot-nginx
 
 npm install -g localtunnel
 
+git clone https://github.com/dhavalmshah/tamer
+
+cd tamer
+
 npm install
 
 lt --port 3000 && npm start
