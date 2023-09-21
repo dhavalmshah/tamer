@@ -70,13 +70,30 @@ document.addEventListener("DOMContentLoaded", () => {
     errorMessage.textContent = "";
 
     // Fetch form data
-    const formData = new FormData(form);
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    const publicKey = document.getElementById("public-key").value;
+    const privateKey = document.getElementById("private-key").value;
+
+    // Create an object with the form data
+    const data = {
+      username,
+      password,
+      "public-key": publicKey,
+      "private-key": privateKey,
+    };
 
     // Send a POST request to the server
     try {
       const response = await fetch("/create-user", {
         method: "POST",
-        body: formData,
+        headers: {
+          // Set the Content-Type header to JSON or URL-encoded
+          "Content-Type": "application/json",
+          // "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: JSON.stringify(data),
+        // body: new URLSearchParams(data).toString(),
       });
 
       if (!response.ok) {

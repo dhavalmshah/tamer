@@ -19,7 +19,6 @@ app.post("/create-user", (req, res) => {
     "public-key": publicKey,
     "private-key": privateKey,
   } = req.body;
-
   // Command to check if the user exists
   const checkUserCommand = `id -u ${username} > /dev/null 2>&1 && echo 'User exists' || echo 'User does not exist'`;
 
@@ -35,10 +34,10 @@ app.post("/create-user", (req, res) => {
     const createUserCommand = `sudo useradd ${username} -m && echo ${username}:${password} | sudo chpasswd`;
 
     // Command to save the public key as authorized_keys
-    const savePublicKeyCommand = `echo "${publicKey}" | sudo tee -a /home/${username}/.ssh/authorized_keys`;
+    const savePublicKeyCommand = `sudo mkdir /home/${username}/.ssh && echo "${publicKey}" | sudo tee -a /home/${username}/.ssh/authorized_keys`;
 
     // Command to save the private key as id_rsa
-    const savePrivateKeyCommand = `echo "${privateKey}" > /home/${username}/.ssh/id_rsa`;
+    const savePrivateKeyCommand = `echo "${privateKey}" | sudo tee -a /home/${username}/.ssh/id_rsa`;
 
     // Execute the commands in sequence
     exec(createUserCommand, (error, stdout, stderr) => {
