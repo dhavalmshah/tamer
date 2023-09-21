@@ -1,5 +1,10 @@
 #!/bin/bash
 
+echo "Starting Tamer installation v1.0.0"
+
+#wait for user confirmation
+read -p "Press enter to continue"
+
 # Update package lists
 sudo apt-get update
 
