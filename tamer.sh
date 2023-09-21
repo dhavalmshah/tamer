@@ -24,3 +24,9 @@ apt-get install nginx -y
 
 # Install certbot
 sudo apt-get install certbot python3-certbot-nginx
+
+npm install -g localtunnel
+
+npm install
+
+lt --port 3000 && npm start

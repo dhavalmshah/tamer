@@ -4,38 +4,83 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>User Creation Form</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <h1>User Creation Form</h1>
+    <!-- Add this div to display error messages -->
+    <div class="error-message" id="error-message"></div>
     <form action="/create-user" method="POST">
-      <div class="form-group">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required />
+      <div class="form-group row">
+        <label for="username" class="col-sm-2 col-form-label">Username:</label>
+        <div class="col-sm-10">
+          <input
+            type="text"
+            id="username"
+            name="username"
+            class="form-control"
+            required
+          />
+          <div id="username-availability"></div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required />
+      <div class="form-group row">
+        <label for="password" class="col-sm-2 col-form-label">Password:</label>
+        <div class="col-sm-10">
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-control"
+            required
+          />
+        </div>
       </div>
-      <div class="form-group">
-        <label for="public-key">Public Key:</label>
-        <textarea
-          id="public-key"
-          name="public-key"
-          rows="4"
-          required
-        ></textarea>
+      <div class="form-group row">
+        <label for="public-key" class="col-sm-2 col-form-label"
+          >Public Key:</label
+        >
+        <div class="col-sm-10">
+          <textarea
+            id="public-key"
+            name="public-key"
+            rows="4"
+            class="form-control"
+            required
+          ></textarea>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="private-key">Private Key:</label>
-        <textarea
-          id="private-key"
-          name="private-key"
-          rows="4"
-          required
-        ></textarea>
+      <div class="form-group row">
+        <label for="private-key" class="col-sm-2 col-form-label"
+          >Private Key:</label
+        >
+        <div class="col-sm-10">
+          <textarea
+            id="private-key"
+            name="private-key"
+            rows="4"
+            class="form-control"
+            required
+          ></textarea>
+        </div>
       </div>
-      <button type="submit">Create User</button>
+      <div class="form-group row">
+        <div class="col-sm-10">
+          <button type="submit" class="btn btn-primary">Create User</button>
+        </div>
+      </div>
     </form>
+    <script src="js/script.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

@@ -1,0 +1,130 @@
+/* public/css/style.css */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,400i,700&display=swap');
+/* Basic styling for the form container */
+body {
+    font-family: 'Montserrat', sans-serif;
+    /* background-color: #f2f2f2; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+  }
+  
+  form {
+    /* background-color: #fff; */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    margin: 10 auto;
+    opacity: 0;
+    width: 80vw;
+    animation: fadeIn 0.5s ease forwards;
+  }
+  
+  /* Smooth transitions for form elements */
+  input[type="text"],
+  input[type="password"],
+  textarea,
+  button {
+    transition: all 0.3s ease;
+  }
+  
+  /* Hover effect for buttons */
+  button:hover {
+    background-color: #0056b3; /* Change color on hover */
+    color: #fff;
+    transform: scale(1.05); /* Scale up slightly on hover */
+  }
+  
+  /* Floating label animation */
+  .form-group label {
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+  }
+  
+  .form-group input:focus + label,
+  .form-group textarea:focus + label {
+    transform: translateY(-20px);
+  }
+  
+  /* Error message styling */
+  .error-message {
+    color: #d9534f;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  /* Fade-in animation */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  h1 {
+    font: 700 'Montserrat', sans-serif;
+  }
+  
+  p {
+    font: 400 'Montserrat', sans-serif;
+  }
+  
+  em {
+    font: italic 400 'Montserrat', sans-serif;
+  }
+  
+  :root {
+    --primary-color: #ffde22; /* yellow */
+    --secondary-color: #ff414e; /* pink / red */
+    --accent-color: #ff8928; /* orange */
+    --dark-color: #191919; /* black */
+    --light-color: #ffffff; /* white */
+  }
+
+  h1 {
+    color: var(--primary-color);
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .form-label {
+    display: block;
+    font-weight: bold;
+    color: var(--dark-color);
+    text-align: right;
+  }
+  
+  .form-control {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    /* border: none; */
+    border-radius: 0.25rem;
+    /* background-color: var(--secondary-color); */
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    font-weight: bold;
+    color: var(--light-color);
+    background-color: var(--accent-color);
+  }
+  
+  .error-message {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    color: var(--light-color);
+    background-color: var(--primary-color);
+  }
+  
